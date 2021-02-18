@@ -1,0 +1,24 @@
+{
+  "name": "cinderelebugada.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/cinderelabugada/cinderelebugada.github.io.git",
+  "author": "Cinderela Bugada <bugadacinderela@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "parcel serve ./src/index.html --out-dir ./docs",
+    "build": "parcel build ./src/index.html --out-dir ./docs"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/preset-react": "^7.12.13",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.32.7"
+  },
+  "dependencies": {
+    "header": "^0.1.1",
+    "react": "17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
