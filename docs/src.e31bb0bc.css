@@ -1,58 +1,78 @@
-body {
-  margin: 0;
-}
-
 .Header-wrapper {
-  position: relative;
-  text-align: center;
-  color: white;
-  height: 200px;
-  overflow: hidden;
-}
-.Header-wrapper img {
-  width: 100%;
-}
-.Header-wrapper .filter {
-  color: rgba(0, 0, 0, 0.5);
-}
-.Header-wrapper .title-wrapper {
   backdrop-filter: blur(1px);
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  width: 50vw;
+  background-image: url("/TilesBig.538a26d2.png");
+  background-size: 1920px 640px;
+  background-repeat: repeat-x;
   height: 200px;
 }
-.Header-wrapper .title-wrapper .title {
-  position: absolute;
-  top: 60%;
-  left: 5%;
+.Header-wrapper .title {
+  color: #FFF;
   background: #9E1E60;
   font-size: 2rem;
   font-family: "Roboto", sans-serif;
   padding: 10px;
   border-radius: 4px;
   width: 260px;
+  position: absolute;
+  bottom: 10%;
+  left: 3%;
 }
-
+.Content-wrapper {
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.Content-wrapper * {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.Content-wrapper a {
+  color: #9E1E60;
+  font-family: "Roboto", sans-serif;
+}
+.Content-wrapper .content {
+  text-align: justify;
+  font-family: "Lato", sans-serif;
+}
+.Content-wrapper .content-menu {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+}
 .Footer-wrapper {
+  background-image: url("/TilesBig.538a26d2.png");
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   bottom: 0%;
   left: 0%;
-  height: 50px;
-  overflow: hidden;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
-.Footer-wrapper img {
-  width: 100%;
+.Footer-wrapper .footer {
+  color: #FFF;
+  background: #9E1E60;
+  border-radius: 4px;
+  min-width: 200px;
+  width: 20%;
+  padding: 5px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-.Footer-wrapper .floating-content {
-  position: relative;
-  text-align: center;
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
 }
-.Footer-wrapper .footer-wapper {
-  position: absolute;
-  bottom: 10%;
-  left: 0%;
+
+a {
+  color: #FFF;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */
