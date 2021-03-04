@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import Markdown from 'react-markdown'
 
 import './Content.sass'
@@ -18,29 +18,28 @@ function useQuery() {
 const Page404 = () => (
   <div>
     <h3>Página Não Encontrada</h3>
+    <p>Talvez você esteja procurando um dos tópicos ao lado.</p>
   </div>
 )
 
-const Content = () => {
+const Content = ({ defaultRoute }) => {
   const query = useQuery()
-  const idPost = query.get('post') || "sobre"
-
+  const { id } = useParams()
   return (
     <div className='Content-wrapper'>
-      <Link to='/about'>Outro Sobre</Link>
       <div className='content-menu'>
         {Object.keys(posts)
           .map((key) =>
-            <Link key={key} to={`?post=${key}`}>
+            <Link key={key} to={`/${key}`}>
               {posts[key].title}
             </Link>
           )}
       </div>
-      {posts[idPost]
+      {posts[id || defaultRoute]
         ? (<div className='content'>
-            <h3>{posts[idPost].title}</h3>
+            <h3>{posts[id || defaultRoute].title}</h3>
             <Markdown>
-              {posts[idPost].content}
+              {posts[id || defaultRoute].content}
             </Markdown>
           </div>)
         : <Page404 />

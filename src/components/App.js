@@ -16,12 +16,8 @@ const App = () => {
       <div className='App-wrapper'>
         <Header />
         <Switch>
-          <Route path="/about">
-            <h2>Teste</h2>
-          </Route>
-          <Route path="/">
-            <Content />
-          </Route>
+          <Route exact path="/" component={() => <Content defaultRoute='sobre' />} />
+          <Route path="/:id" component={Content} />
         </Switch>
         <Footer />
       </div>

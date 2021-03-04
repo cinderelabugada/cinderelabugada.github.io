@@ -43262,26 +43262,28 @@ function useQuery() {
 }
 
 var Page404 = function Page404() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "P\xE1gina N\xE3o Encontrada"));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "P\xE1gina N\xE3o Encontrada"), /*#__PURE__*/_react.default.createElement("p", null, "Talvez voc\xEA esteja procurando um dos t\xF3picos ao lado."));
 };
 
-var Content = function Content() {
+var Content = function Content(_ref) {
+  var defaultRoute = _ref.defaultRoute;
   var query = useQuery();
-  var idPost = query.get('post') || "sobre";
+
+  var _useParams = (0, _reactRouterDom.useParams)(),
+      id = _useParams.id;
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "Content-wrapper"
-  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/about"
-  }, "Outro Sobre"), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "content-menu"
   }, Object.keys(posts).map(function (key) {
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       key: key,
-      to: "?post=".concat(key)
+      to: "/".concat(key)
     }, posts[key].title);
-  })), posts[idPost] ? /*#__PURE__*/_react.default.createElement("div", {
+  })), posts[id || defaultRoute] ? /*#__PURE__*/_react.default.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/_react.default.createElement("h3", null, posts[idPost].title), /*#__PURE__*/_react.default.createElement(_reactMarkdown.default, null, posts[idPost].content)) : /*#__PURE__*/_react.default.createElement(Page404, null));
+  }, /*#__PURE__*/_react.default.createElement("h3", null, posts[id || defaultRoute].title), /*#__PURE__*/_react.default.createElement(_reactMarkdown.default, null, posts[id || defaultRoute].content)) : /*#__PURE__*/_react.default.createElement(Page404, null));
 };
 
 var _default = Content;
@@ -43345,10 +43347,17 @@ var App = function App() {
   return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "App-wrapper"
   }, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    path: "/about"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, "Teste")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    path: "/"
-  }, /*#__PURE__*/_react.default.createElement(_Content.default, null))), /*#__PURE__*/_react.default.createElement(_Footer.default, null)));
+    exact: true,
+    path: "/",
+    component: function component() {
+      return /*#__PURE__*/_react.default.createElement(_Content.default, {
+        defaultRoute: "sobre"
+      });
+    }
+  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/:id",
+    component: _Content.default
+  })), /*#__PURE__*/_react.default.createElement(_Footer.default, null)));
 };
 
 var _default = App;
@@ -43400,7 +43409,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46879" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33579" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
