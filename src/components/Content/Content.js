@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Markdown from 'react-markdown'
 
-
 import './Content.sass'
 
 import * as posts from '../../posts.json'
@@ -28,6 +27,7 @@ const Content = () => {
 
   return (
     <div className='Content-wrapper'>
+      <Link to='/about'>Outro Sobre</Link>
       <div className='content-menu'>
         {Object.keys(posts)
           .map((key) =>

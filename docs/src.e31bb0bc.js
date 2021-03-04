@@ -43270,7 +43270,9 @@ var Content = function Content() {
   var idPost = query.get('post') || "sobre";
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "Content-wrapper"
-  }, /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/about"
+  }, "Outro Sobre"), /*#__PURE__*/_react.default.createElement("div", {
     className: "content-menu"
   }, Object.keys(posts).map(function (key) {
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
@@ -43329,6 +43331,8 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _reactRouterDom = require("react-router-dom");
+
 var _Header = _interopRequireDefault(require("./Header/Header"));
 
 var _Content = _interopRequireDefault(require("./Content/Content"));
@@ -43338,14 +43342,18 @@ var _Footer = _interopRequireDefault(require("./Footer/Footer"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "App-wrapper"
-  }, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_Content.default, null), /*#__PURE__*/_react.default.createElement(_Footer.default, null));
+  }, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/about"
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "Teste")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/"
+  }, /*#__PURE__*/_react.default.createElement(_Content.default, null))), /*#__PURE__*/_react.default.createElement(_Footer.default, null)));
 };
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Header/Header":"components/Header/Header.js","./Content/Content":"components/Content/Content.js","./Footer/Footer":"components/Footer/Footer.js"}],"style.sass":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./Header/Header":"components/Header/Header.js","./Content/Content":"components/Content/Content.js","./Footer/Footer":"components/Footer/Footer.js"}],"style.sass":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -43357,16 +43365,14 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _reactRouterDom = require("react-router-dom");
-
 var _App = _interopRequireDefault(require("./components/App"));
 
 require("./style.sass");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_App.default, null)), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./components/App":"components/App.js","./style.sass":"style.sass"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_App.default, null), document.getElementById('root'));
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/App":"components/App.js","./style.sass":"style.sass"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -43394,7 +43400,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33941" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46879" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
