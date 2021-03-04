@@ -43245,11 +43245,7 @@ var _reactMarkdown = _interopRequireDefault(require("react-markdown"));
 
 require("./Content.sass");
 
-var posts = _interopRequireWildcard(require("../../posts.json"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var _posts = _interopRequireDefault(require("../../posts.json"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -43262,7 +43258,9 @@ function useQuery() {
 }
 
 var Page404 = function Page404() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "P\xE1gina N\xE3o Encontrada"), /*#__PURE__*/_react.default.createElement("p", null, "Talvez voc\xEA esteja procurando um dos t\xF3picos ao lado."));
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "content"
+  }, /*#__PURE__*/_react.default.createElement("h3", null, "P\xE1gina N\xE3o Encontrada"), /*#__PURE__*/_react.default.createElement("p", null, "Talvez voc\xEA esteja procurando um dos t\xF3picos ao lado."));
 };
 
 var Content = function Content(_ref) {
@@ -43276,14 +43274,14 @@ var Content = function Content(_ref) {
     className: "Content-wrapper"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "content-menu"
-  }, Object.keys(posts).map(function (key) {
+  }, Object.keys(_posts.default).map(function (key) {
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       key: key,
       to: "/".concat(key)
-    }, posts[key].title);
-  })), posts[id || defaultRoute] ? /*#__PURE__*/_react.default.createElement("div", {
+    }, _posts.default[key].title);
+  })), _posts.default[id || defaultRoute] ? /*#__PURE__*/_react.default.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/_react.default.createElement("h3", null, posts[id || defaultRoute].title), /*#__PURE__*/_react.default.createElement(_reactMarkdown.default, null, posts[id || defaultRoute].content)) : /*#__PURE__*/_react.default.createElement(Page404, null));
+  }, /*#__PURE__*/_react.default.createElement("h3", null, _posts.default[id || defaultRoute].title), /*#__PURE__*/_react.default.createElement(_reactMarkdown.default, null, _posts.default[id || defaultRoute].content)) : /*#__PURE__*/_react.default.createElement(Page404, null));
 };
 
 var _default = Content;
@@ -43323,7 +43321,12 @@ var Footer = function Footer() {
 
 var _default = Footer;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Footer.sass":"components/Footer/Footer.sass"}],"components/App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Footer.sass":"components/Footer/Footer.sass"}],"components/App.sass":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -43340,6 +43343,8 @@ var _Header = _interopRequireDefault(require("./Header/Header"));
 var _Content = _interopRequireDefault(require("./Content/Content"));
 
 var _Footer = _interopRequireDefault(require("./Footer/Footer"));
+
+require("./App.sass");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -43362,7 +43367,7 @@ var App = function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./Header/Header":"components/Header/Header.js","./Content/Content":"components/Content/Content.js","./Footer/Footer":"components/Footer/Footer.js"}],"style.sass":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./Header/Header":"components/Header/Header.js","./Content/Content":"components/Content/Content.js","./Footer/Footer":"components/Footer/Footer.js","./App.sass":"components/App.sass"}],"themes.sass":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -43376,12 +43381,12 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _App = _interopRequireDefault(require("./components/App"));
 
-require("./style.sass");
+require("./themes.sass");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(_App.default, null), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/App":"components/App.js","./style.sass":"style.sass"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/App":"components/App.js","./themes.sass":"themes.sass"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -43409,7 +43414,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33579" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37147" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

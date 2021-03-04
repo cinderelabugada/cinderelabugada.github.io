@@ -4,7 +4,7 @@ import Markdown from 'react-markdown'
 
 import './Content.sass'
 
-import * as posts from '../../posts.json'
+import posts from '../../posts.json'
 
 /**
  * Também poderia ser:
@@ -16,7 +16,7 @@ function useQuery() {
 }
 
 const Page404 = () => (
-  <div>
+  <div className='content'>
     <h3>Página Não Encontrada</h3>
     <p>Talvez você esteja procurando um dos tópicos ao lado.</p>
   </div>

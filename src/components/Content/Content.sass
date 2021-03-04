@@ -1,28 +1,44 @@
+@use 'src/themes.sass'
+
 .Content-wrapper
   padding: 15px
-  
   display: flex
   flex-direction: row
+  flex-grow: 1
   align-items: center
-
+  
   min-height: calc(100vh - 200px - 53px - (2 * 15px))
 
-  h3
-    margin-top: 0
-
-  *
-    padding-left: 3px
-    padding-right: 3px
-  a
-    color: #9E1E60
-    font-family: 'Roboto', sans-serif
-
-  .content
-    text-align: justify
-    font-family: 'Lato', sans-serif
+  @media (max-width: 450px)
+    flex-direction: column
 
   .content-menu
     display: flex
     flex-direction: column
     min-width: 120px
+    @media (max-width: 450px)
+      flex-direction: row
+      a::after
+        padding: 5px
+        content: '•'
+      :last-child::after
+        content: ''
+
+  .content
+    text-align: justify
+    font-family: 'Lato', sans-serif
+
+  h3
+    margin-top: 0
+
+  & > div
+    padding-left: 3px
+    padding-right: 3px
+
+  a
+    color: themes.$purple
+    //color: #9E1E60
+    font-weight: bold
+    font-family: 'Roboto', sans-serif
+
 
