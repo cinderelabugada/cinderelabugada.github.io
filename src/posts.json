@@ -1,9 +1,9 @@
 {
-  1: {
+  "sobre": {
     "title": "Sobre",
     "content": "Cinderela Bugada é um canal na Twitch sobre desenvolvimento web e modelagem 3D em conjunto com os views do canal. Todo código desenvolvido durante as lives fica disponível no GitHub com acesso livre. Para ficar por dentro das novidades do canal siga na [Twitch](https://twitch.tv/cinderelabugada) e no [Twitter](https://twitter.com/bugadacinderela)"
   },
-  2: {
+  "agenda": {
     "title": "Agenda",
     "content": "- Segundas: Aprendendo PIXI.JS\n\n- Terças: Criando a página do GitHub com React\n\n - Quintas: Aprendendo Blender"
   }

@@ -16,9 +16,15 @@ function useQuery() {
   return new URLSearchParams(useLocation().search)
 }
 
+const Page404 = () => (
+  <div>
+    <h3>Página Não Encontrada</h3>
+  </div>
+)
+
 const Content = () => {
   const query = useQuery()
-  const idPost = query.get('post')
+  const idPost = query.get('post') || "sobre"
 
   return (
     <div className='Content-wrapper'>
@@ -30,12 +36,15 @@ const Content = () => {
             </Link>
           )}
       </div>
-      <div className='content'>
-        <h3>{posts[idPost].title}</h3>
-        <Markdown>
-          {posts[idPost].content}
-        </Markdown>
-      </div>
+      {posts[idPost]
+        ? (<div className='content'>
+            <h3>{posts[idPost].title}</h3>
+            <Markdown>
+              {posts[idPost].content}
+            </Markdown>
+          </div>)
+        : <Page404 />
+      }
     </div>
   )
 }

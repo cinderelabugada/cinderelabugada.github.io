@@ -43220,11 +43220,11 @@ module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"posts.json":[function(require,module,exports) {
 module.exports = {
-  1: {
+  "sobre": {
     "title": "Sobre",
     "content": "Cinderela Bugada é um canal na Twitch sobre desenvolvimento web e modelagem 3D em conjunto com os views do canal. Todo código desenvolvido durante as lives fica disponível no GitHub com acesso livre. Para ficar por dentro das novidades do canal siga na [Twitch](https://twitch.tv/cinderelabugada) e no [Twitter](https://twitter.com/bugadacinderela)"
   },
-  2: {
+  "agenda": {
     "title": "Agenda",
     "content": "- Segundas: Aprendendo PIXI.JS\n\n- Terças: Criando a página do GitHub com React\n\n - Quintas: Aprendendo Blender"
   }
@@ -43261,9 +43261,13 @@ function useQuery() {
   return new URLSearchParams((0, _reactRouterDom.useLocation)().search);
 }
 
+var Page404 = function Page404() {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "P\xE1gina N\xE3o Encontrada"));
+};
+
 var Content = function Content() {
   var query = useQuery();
-  var idPost = query.get('post');
+  var idPost = query.get('post') || "sobre";
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "Content-wrapper"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -43273,9 +43277,9 @@ var Content = function Content() {
       key: key,
       to: "?post=".concat(key)
     }, posts[key].title);
-  })), /*#__PURE__*/_react.default.createElement("div", {
+  })), posts[idPost] ? /*#__PURE__*/_react.default.createElement("div", {
     className: "content"
-  }, /*#__PURE__*/_react.default.createElement("h3", null, posts[idPost].title), /*#__PURE__*/_react.default.createElement(_reactMarkdown.default, null, posts[idPost].content)));
+  }, /*#__PURE__*/_react.default.createElement("h3", null, posts[idPost].title), /*#__PURE__*/_react.default.createElement(_reactMarkdown.default, null, posts[idPost].content)) : /*#__PURE__*/_react.default.createElement(Page404, null));
 };
 
 var _default = Content;
@@ -43390,7 +43394,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44829" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33941" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
