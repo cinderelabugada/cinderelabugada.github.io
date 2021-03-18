@@ -6,24 +6,33 @@ import {
   Route
 } from "react-router-dom"
 
+import { ThemeProvider } from 'styled-components'
+
 import Header from './Header/Header'
 import Content from './Content/Content'
 import Footer from './Footer/Footer'
+
+import theme from '../theme'
 
 import './App.sass'
 
 const App = () => {
   return (
-    <Router>
-      <div className='App-wrapper'>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={() => <Content defaultRoute='sobre' />} />
-          <Route path="/:id" component={Content} />
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <div className='App-wrapper'>
+          <Header />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              component={() => <Content defaultRoute='sobre' />}
+            />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    </ThemeProvider>
   )
 }
 
