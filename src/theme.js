@@ -1,31 +1,33 @@
 const sizes = {
   contentPadding: '15px',
   headerHeight: '200px',
-  footerHeight: '80px'
+  footerHeight: '70px'
 }
 
 const theme = {
   /* fontes */
-  fonts: {
-    header: "'Roboto', sans-serif",
-    body: "'Lato', sans-serif"
+  fontes: {
+    cabecalho: "'Roboto', sans-serif",
+    corpo: "'Lato', sans-serif"
   },
 
   /* cores */
   cores:  {
-    purple: '#240724',
-    yellow: '#EAD637'
+    roxo: '#240724',
+    amarelo: '#EAD637',
+    branco: '#CCCCCC',
+    preto: '#222222'
   },
 
   /* tamanhos */
-  sizes: {
+  tamanhos: {
     ...sizes,
-    contentHeight:  `min-height: calc(
+    contentHeight:  `calc(
       100vh
       - ${sizes.headerHeight}
       - ${sizes.footerHeight}
       - (2 * ${sizes.contentPadding})
-    `
+    )`
   },
 }
 

@@ -8,7 +8,7 @@ import posts from '../../posts.json'
 
 const ContentMain = styled.div`
   text-align: justify;
-  font-family: 'Lato', sans-serif;
+  font-family: ${props => props.theme.fontes.corpo};
 `
 
 const ContentContainer = styled.div`
@@ -18,7 +18,8 @@ const ContentContainer = styled.div`
   flex-grow: 1;
   align-items: center;
   
-  min-height: calc(100vh - 200px - 70px - (2 * 15px));
+  // min-height: calc(100vh - 200px - 70px - (2 * 15px));
+  min-height: ${prop => prop.theme.tamanhos.contentHeight};
 
   @media (max-width: 450px) {
     flex-direction: column;
